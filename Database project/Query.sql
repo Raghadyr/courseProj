@@ -1,0 +1,78 @@
+
+INSERT INTO EMPLOYEE VALUES('122456785','1980-05-01','ahamad ali','M','0556643333',3000,'b4624','m3153');
+INSERT INTO EMPLOYEE VALUES('123356784','1990-02-21','sara ahmad','F','0554443366',6000,'a2154','n5737');
+INSERT INTO EMPLOYEE VALUES('124456783','1970-01-01','muhammad ibrahim','M','0554443311',2000,'a1244','nn2632');
+INSERT INTO EMPLOYEE VALUES('125456782','1988-03-11','nora saad','F','0554411333',9000,'v3256','sn2311');
+INSERT INTO EMPLOYEE VALUES('126456781','1993-02-02','ahamad saud','M','0557773333',6000,'n3524','nn752');
+INSERT INTO EMPLOYEE VALUES('126456681','1993-02-02','ahamad saud','M','0557773333',6000,'n3524','nn752');
+
+delete from EMPLOYEE;
+
+INSERT INTO VISITORS VALUES ('111155555','F','2001-08-09',0555444322,'Maha');
+INSERT INTO VISITORS VALUES ('222299999','M','1999-11-25',0556677722,'Abdullah');
+INSERT INTO VISITORS VALUES ('333344444','F','1997-10-02',0555523309,'Sara');
+
+select * from VISITORS;
+
+SELECT Vis_id,Name_ FROM VISITORS WHERE Gender='F';
+
+UPDATE VISITORS
+SET phone= '055599888'
+WHERE Vis_id= '333344444';
+
+INSERT INTO MEDICAL_CASE VALUES('098765432','111155555','2021-05-01','01:30:01','04:34:01','Normal','Panadol');
+INSERT INTO MEDICAL_CASE VALUES('098788831','222299999','2021-05-02','02:30:01','04:34:01','Headic','Panadol');
+
+delete from MEDICAL_CASE;
+
+SELECT n.Name_,c.Case_ From MEDICAL_CASE as c join  VISITORS as n where n.Vis_id=c.Vis_id AND Case_='Normal';
+insert into employee (Emp_id,Name_) 
+select Vis_id,Name_ from visitors ;
+
+select * from EMPLOYEE order by  Name_ asc,salary desc ;
+
+INSERT INTO EVENT_(Event_No,E_id,Theme) VALUES(1,'125456782','Spring');
+INSERT INTO EVENT_(Event_No,E_id,Theme) VALUES(2,'125456782','Summer');
+select Event_No,E_id,Theme from EVENT_;
+SELECT Name_,MAX(Salary) FROM EMPLOYEE;
+
+INSERT INTO ROUND VALUES(1,'Bumbers cars','01:40:01','2021-01-01');
+INSERT INTO ROUND VALUES(2,'Water ride','01:40:01','2021-01-01');
+select * FROM ROUND;
+UPDATE ROUND SET Time_= '03:40:01' WHERE Ride_name='Water ride';
+
+DELETE FROM ROUND WHERE Ride_name='Water ride';
+
+SELECT r.R_num,ra.Capacity FROM ROUND  r join Ride ra ;
+
+
+
+
+SELECT Name_,Event_No,Theme FROM EVENT_,EMPLOYEE WHERE Emp_id=E_id;
+DELETE FROM EMPLOYEE WHERE Name_='sara ahmad';
+UPDATE EMPLOYEE SET Salary=(1.2*Salary);
+
+
+INSERT INTO RIDE VALUES('Roller coster','122456785','5 min',50,15,10);
+INSERT INTO RIDE VALUES('Water ride','126456781','10 min',30,10,10);
+INSERT INTO RIDE VALUES('Bumbers cars','125456782','8 min',20,10,8);
+
+INSERT INTO CHECK_ VALUES('122456785','Water ride',3000,'Rusty','2021-06-01');
+INSERT INTO CHECK_ VALUES('122456785','Bumbers cars',2000,'weird noises','2021-02-09');
+
+SELECT * FROM CHECK_;
+
+UPDATE CHECK_ SET M_Cost=1000 WHERE Ride_name='Bumbers cars';
+
+DELETE FROM RIDE WHERE E_id='122456785';
+
+ 
+ UPDATE PAYMENT SET Payment_method='cash' WHERE Receipt_num=2;
+ 
+ UPDATE RIDE SET Duration='10 min' WHERE Ride_name='Bumbers cars';
+
+select * from PAYMENT;
+select * from ride;
+
+SELECT Ride_name,Age FROM RIDE;
+SELECT Name_,Ride_name FROM EMPLOYEE,RIDE WHERE Emp_id=E_id;
